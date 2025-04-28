@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Note</title>
+    <!-- Google Fonts for Fancy Text -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Style */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: linear-gradient(to bottom, #f0b3d1, #ffb3e6); /* Soft pink gradient */
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5em;
+            color: #ff4d88; /* A vibrant pink color for the heading */
+        }
+
+        #note {
+            display: none;
+            margin-top: 30px;
+            font-family: 'Great Vibes', cursive; /* Fancy font */
+            font-size: 1.5em;
+            line-height: 1.8;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9); /* Light background with some opacity */
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+            max-width: 800px;
+            width: 90%;
+            text-align: left;
+            margin: 20px auto;
+            color: #333; /* Darker color for better readability */
+        }
+
+        #note p {
+            margin-bottom: 15px;
+        }
+
+        #note p:last-child {
+            margin-bottom: 0;
+        }
+
+        .button {
+            margin: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            background-color: #ff4d88;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .button:hover {
+            transform: scale(1.1);
+        }
+
+        /* Balloon Animation */
+        @keyframes balloonAnimation {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-500px); opacity: 0; }
+        }
+
+        .balloon {
+            position: absolute;
+            bottom: -100px;
+            width: 50px;
+            height: 70px;
+            background-color: #FF6347;
+            border-radius: 50%;
+            animation: balloonAnimation 10s ease-in infinite;
+            opacity: 0;
+        }
+
+        .balloon:nth-child(2) {
+            background-color: #FFD700;
+            animation-delay: 2s;
+        }
+
+        .balloon:nth-child(3) {
+            background-color: #32CD32;
+            animation-delay: 4s;
+        }
+
+        .balloon:nth-child(4) {
+            background-color: #00BFFF;
+            animation-delay: 6s;
+        }
+
+        /* Heart Animation */
+        @keyframes heartAnimation {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .heart {
+            position: absolute;
+            bottom: -100px;
+            font-size: 30px;
+            color: red;
+            animation: heartAnimation 6s ease-in-out infinite;
+        }
+
+        #heart1 { left: 10%; animation-delay: 0s; }
+        #heart2 { left: 30%; animation-delay: 2s; }
+        #heart3 { left: 50%; animation-delay: 4s; }
+        #heart4 { left: 70%; animation-delay: 6s; }
+
+        /* Hidden Image */
+        #hiddenImage {
+            display: none;
+            margin-top: 30px;
+            width: 200px;
+            height: auto;
+            animation: sparkleAnimation 2s ease-in-out infinite;
+        }
+
+        /* Sparkle Effect */
+        @keyframes sparkleAnimation {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Math Question */
+        #mathQuestion {
+            display: none;
+            margin-top: 30px;
+            font-size: 20px;
+        }
+
+        .mathOption {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #FFD700;
+            border: none;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .mathOption:hover {
+            background-color: #FF6347;
+        }
+    </style>
+</head>
+<body>
+    <h1>Happy Birthday, My Love!</h1>
+
+    <div id="yesNoButtons">
+        <button class="button" id="yesButton">Yes</button>
+        <button class="button" id="noButton">Absolutely Not</button>
+    </div>
+
+    <div id="note">
+        <p>Happy Birthday, my love! I’m so glad we’ve made it this far together. No matter the ups and downs, you’ve stood by me, and I admire you more than words can say. You're beautiful, kind, and incredibly strong. I can’t wait for our future, and I hope this note brings a smile to your face. </p>
+        <p>The first time we talked, I hoped forever with you. Then, things started breaking out, and we sorted them all. We continue to sort everything every day, and yet we stay strong. You could get a lot of better options, but you chose me. I'm glad you did. I'm sorry I couldn't present this to you on your birthday; I know it’s late now, but here it is. There are so many things to praise about you, I could admire you all day and still run out of words.</p>
+        <p>Now you’re going to move out of the city; maybe things get easier or harder, I don’t know. But I hope for the best, and I’ll do whatever it takes to stay with you. You’re my Kucchu Pucchuu, and I love you so much. Forget all the mistakes I’ve made, especially the stupid ones. I couldn’t make your birthday special, and I’m sorry for that. But I will make the next one unforgettable. Happy 16th Birthday, babe! I love you more than anything!</p>
+        <button class="button" id="nextButton">Next</button>
+    </div>
+
+    <div id="mathQuestion">
+        <p>What is 999 / 9?</p>
+        <button class="mathOption" onclick="checkAnswer(111)">111</button>
+        <button class="mathOption" onclick="checkAnswer(110)">110</button>
+        <button class="mathOption" onclick="checkAnswer(112)">112</button>
+        <button class="mathOption" onclick="checkAnswer(109)">109</button>
+    </div>
+
+    <img id="hiddenImage" src="birthday-image.jpg" alt="Hidden Birthday Image" />
+
+    <!-- Hidden Balloons and Hearts -->
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="heart" id="heart1">❤️</div>
+    <div class="heart" id="heart2">❤️</div>
+    <div class="heart" id="heart3">❤️</div>
+    <div class="heart" id="heart4">❤️</div>
+
+    <script>
+        let clickCount = 0;
+
+        document.getElementById('yesButton').addEventListener('click', function() {
+            clickCount++;
+            if (clickCount < 7) {
+                document.getElementById('yesButton').style.transform = `scale(${1 - 0.1 * clickCount})`;
+            } else {
+                document.getElementById('yesNoButtons').style.display = 'none'; // Hide Yes/No buttons
+                document.getElementById('note').style.display = 'block'; // Show the note
+                showBalloonsAndHearts();
+            }
+        });
+
+        function checkAnswer(answer) {
+            if (answer === 111) {
+                document.getElementById('hiddenImage').style.display = 'block';
+            }
+        }
+
+        function showBalloonsAndHearts() {
+            document.querySelectorAll('.balloon').forEach(balloon => balloon.style.opacity = 1);
+            document.querySelectorAll('.heart').forEach(heart => heart.style.animation = 'heartAnimation 6s ease-in-out infinite');
+        }
+
+        document.getElementById('nextButton').addEventListener('click', function() {
+            document.getElementById('mathQuestion').style.display = 'block'; // Show the math question after the note
+        });
+    </script>
+</body>
+</html>
